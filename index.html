@@ -34,14 +34,23 @@
           <li>Measuring to ensure updates are a success</li>
           <li>And much more!</li>
         </ul>
-        <form class="newsletter-form" action="">
+        <form class="newsletter-form" novalidate>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" placeholder="email@company.com" />
+            <input
+              id="email"
+              type="email"
+              placeholder="email@company.com"
+              required
+            />
+            <p class="error-message">Valid email required</p>
           </div>
-          <button class="button">Subscribe to monthly newsletter</button>
+          <button class="button" type="submit">
+            Subscribe to monthly newsletter
+          </button>
         </form>
       </div>
     </div>
   </body>
+  <script src="index.js"></script>
 </html>

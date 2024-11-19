@@ -142,12 +142,20 @@ body {
 
 .form-group {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   font-size: var(--fs-300);
   font-weight: var(--fw-bold);
 }
 
+label {
+  grid-column: 1;
+  grid-row: 1;
+}
+
 input {
+  grid-row: 2;
+  grid-column: 1 / -1;
   padding: 1rem;
   border-radius: 0.5rem;
   font-family: inherit;
@@ -156,8 +164,47 @@ input {
   border: 1px solid var(--clr-neutral-200);
 }
 
+input.error {
+  border-color: rgb(255, 92, 92);
+  color: rgb(255, 92, 92) !important;
+}
+
+input.error {
+  -webkit-text-fill-color: rgb(255, 92, 92);
+  box-shadow: 0 0 0px 1000px rgb(255, 234, 234) inset;
+}
+
 input::placeholder {
   color: var(--clr-neutral-200);
+}
+
+@keyframes jiggle {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.error-message {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  color: rgb(255, 92, 92);
+  display: none;
+}
+
+.error-message.jiggle {
+  display: block; /* Ensure it's visible when the error occurs */
+  animation: jiggle 0.3s ease-in-out; /* Add the jiggle animation */
 }
 
 .button {
